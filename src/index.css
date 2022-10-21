@@ -1,13 +1,53 @@
-body {
+*, *::after, *::before{
+  box-sizing: border-box;
+  font-size: 18px;
+}
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: rgb(218, 194, 158);
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.calculator-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 75px);
+  grid-template-rows: minmax(90px, auto) repeat(5, 75px);
+  align-self: center;
+  border: 2px solid gray;
+}
+
+.calculator-grid > button{
+  cursor: pointer;
+  font-weight: 500;
+  background-color: rgba(240, 248, 255, 0.8);
+  border: 1px solid white;
+  outline: none;
+}
+
+.span-two{
+  grid-column: span 2;
+}
+
+.output{
+  grid-column: 1/-1;
+  background-color: rgba(0, 0, 0, 0.808);
+  color: rgb(240, 248, 255);
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 10px;
+}
+.output .previous-operand{
+  font-size: 16px;
+}
+.output .current-operand{
+  font-size: 28px;
 }
