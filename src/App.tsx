@@ -59,17 +59,19 @@ function reducer(state: any , {type, payload}: any) {
       
       return {
         ...state,
-        overwrite: true,
         previousOperand: null,
+        overwrite: true,
         operation: null,
-        currentOperando: evaluate(state)
+        currentOperand: evaluate(state),
       }
   }
 }
 
 function evaluate({currentOperand, previousOperand, operation}: any) {
+
   const prev = parseFloat(previousOperand)
   const current = parseFloat(currentOperand)
+
   if (isNaN(prev) || isNaN(current)) return ''
   let computation: any = ''
   switch(operation) {
